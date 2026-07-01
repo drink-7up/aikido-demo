@@ -526,6 +526,81 @@
   }
   .cta-card .btn-ghost:hover { background: rgba(255,255,255,.08); }
 
+  /* ============ VANCO EMBED ============ */
+  .give-embed {
+    padding: clamp(80px, 12vw, 130px) 0;
+    background:
+      radial-gradient(ellipse at 90% 10%, rgba(230,57,70,.08), transparent 50%),
+      var(--paper);
+  }
+  .give-embed .section-header { text-align: center; }
+  .vanco-frame {
+    max-width: 980px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+  .vanco-frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .vanco-frame-bar > span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #d9d3c9;
+    display: block;
+  }
+  .vanco-frame-bar > span:nth-child(1) { background: #e46a67; }
+  .vanco-frame-bar > span:nth-child(2) { background: #f0c36d; }
+  .vanco-frame-bar > span:nth-child(3) { background: #7ec17e; }
+  .vanco-frame-url {
+    margin-left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--muted);
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  .vanco-frame iframe {
+    display: block;
+    width: 100%;
+    height: min(80vh, 820px);
+    min-height: 620px;
+    border: 0;
+    background: #fff;
+  }
+  .vanco-fallback {
+    max-width: 980px;
+    margin: 20px auto 0;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .vanco-fallback a {
+    color: var(--accent);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(230,57,70,.3);
+    transition: border-color .2s ease;
+  }
+  .vanco-fallback a:hover { border-color: var(--accent); }
+  @media (max-width: 640px) {
+    .vanco-frame-url { display: none; }
+    .vanco-frame iframe { min-height: 560px; height: 75vh; }
+  }
+
   /* ============ FOOTER ============ */
   footer {
     background: var(--ink);
@@ -807,7 +882,7 @@
 </section>
 
 <!-- ============ CTA ============ -->
-<section class="cta" id="give">
+<section class="cta">
   <div class="container">
     <div class="cta-card fade-up">
       <div class="section-eyebrow" style="color: var(--accent-2);">Partner With Us</div>
@@ -816,10 +891,53 @@
         Every dollar goes further when it comes from someone who prays. Would you consider joining the team that sends?
       </p>
       <div class="cta-ctas">
-        <a href="#" class="btn btn-primary">Give today →</a>
-        <a href="#" class="btn btn-ghost">Become a monthly partner</a>
+        <a href="#give" class="btn btn-primary">Give today →</a>
+        <a href="https://secure.myvanco.com/YJYX/home" target="_blank" rel="noopener" class="btn btn-ghost">Become a monthly partner</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ============ GIVE (VANCO EMBED) ============ -->
+<section class="give-embed" id="give">
+  <div class="container">
+    <div class="section-header fade-up" style="text-align:center; margin:0 auto 48px;">
+      <div class="section-eyebrow">Secure Giving</div>
+      <h2>Give <em>directly, right here.</em></h2>
+      <p class="section-lede" style="margin: 20px auto 0;">
+        Donations are processed securely by Vanco. Your gift goes directly to missionaries on the field.
+      </p>
+    </div>
+
+    <div class="vanco-frame fade-up">
+      <div class="vanco-frame-bar" aria-hidden="true">
+        <span></span><span></span><span></span>
+        <div class="vanco-frame-url">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          secure.myvanco.com/YJYX/home
+        </div>
+      </div>
+      <iframe
+        src="https://secure.myvanco.com/YJYX/home"
+        title="Nevertheless Missions secure giving portal"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allow="payment"
+        sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+      ></iframe>
+      <noscript>
+        <p style="padding:24px; text-align:center;">
+          Please enable JavaScript, or <a href="https://secure.myvanco.com/YJYX/home">open the giving portal directly</a>.
+        </p>
+      </noscript>
+    </div>
+
+    <p class="vanco-fallback">
+      Having trouble? <a href="https://secure.myvanco.com/YJYX/home" target="_blank" rel="noopener">Open the secure giving page in a new tab →</a>
+    </p>
   </div>
 </section>
 
